@@ -1,0 +1,215 @@
+.all {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+.toolbar{
+  /*background-color: rgb(35, 1, 11);*/
+  margin-right: 30em;
+  color: black;
+
+  /*background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(../images/berry.png);*/
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+mat-sidenav {
+  align-content: center;
+  max-width:15em;
+  min-width:10em;
+
+  /*background-color: rgba(0, 0, 0, 0.3);*/
+}
+
+.active-link {
+  color: #f0a0a0;
+  font-size: 120%;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.routeIcon {
+  margin-right: 0.5em;
+}
+
+.moreIcon {
+  margin-left:0.5em;
+}
+
+.subNav {
+  margin-top:1em;
+  padding-left: 2em;
+  color: black;
+}
+
+.navList {
+  padding-left: 1em;
+  color: black;
+}
+
+.example-is-mobile .toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 1em;
+}
+
+.sidebar {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+
+  /*background-image: url("../images/berry.png");*/
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-color: black;*/
+
+
+}
+
+
+
+.title-center { 
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+a{
+  color: white;
+  border-style: none;
+  text-decoration: none;
+}
+
+.mobileShow {
+  display:none;
+}
+@media screen and (max-width: 770px) {
+  .mobileShow {
+    display:block; 
+  }
+  .mobileHide {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    margin: 10px auto 5px 20px;
+    width: 28%;
+    display: none;
+  }
+    
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+
+  .logo {
+    /*margin-top: -2.5em;*/
+  }
+}
+
+.topbar{
+  padding-top: 0.4em;
+}
+.topNavLinks{
+  padding-top: 0.2em;
+  text-decoration: none;
+  size: 4em;
+}
+
+.st1{fill:none;stroke:rgb(255, 255, 255);stroke-width:4;stroke-miterlimit:10;}
+.st0{fill:rgb(255, 255, 255);}
+
+/*.L{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+.N{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+*/
+#myLogo{
+  width: 2em; 
+  height: 2em;
+}
+
+.line {
+  
+  z-index: -1;
+  opacity: 0;
+  position: inherit;
+  height: 2px;
+  width: 100%;
+  background-color: #f0a0a0;
+}
+
+
+
+/* STICKY HEADER */
+.header {
+  padding: 10px 16px;
+  height: 5em;
+  background: rgba(0, 0, 0, 0.8);
+  color: #f1f1f1;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.sticky + .content {
+  padding-top: 5em;
+}
+
+/* SIDENAV */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  text-align:center;
+
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+
+}
+
+.sidenav a:hover{
+  color: #f1f1f1;
+}
+
+.closebtn {
+  position: absolute;
+  top: 1em;
+  right: 2em;
+  margin-left: 2em;
+}

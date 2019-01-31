@@ -1,21 +1,158 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
-<router-outlet></router-outlet>
+<div class="wrapper">
+
+  <div id="mySidenav" class="sidenav">
+    <div *ngFor="let item of navItems" >
+      <div class="navList" >
+        <a class="" routerLink={{item.route}} (click)="closeNav()" >
+          <mat-icon class="routeIcon"  style="margin-top: 0.5em">{{item.iconName}}</mat-icon>
+          {{item.displayName}}
+          <mat-icon class="moreIcon " *ngIf="item.expand" (click)="item.id = !item.id; toggle()" [attr.aria-expanded]="!item.id" aria-controls=item.id>
+            {{expandButton}}
+          </mat-icon>
+        </a>
+
+        <div [ngbCollapse]=item.id class="subNav" routerLink="." *ngFor="let child of item.children">
+          {{child.displayName}}
+        </div>
+      </div>
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    </div>
+  </div>
+
+  <div class="header" id="myHeader" [class.example-is-mobile]="mobileQuery.matches" *ngIf="!shouldRun">
+  
+    <div class="row">
+      <button href="javascript:void(0)" class="mobileShow closebtn" mat-icon-button (click)="openNav()"><mat-icon>menu</mat-icon></button>  
+
+      <div class="container topbar" > 
+        <a class="mobileHide"  routerLink={{item.route}} routerLinkActive="active-link"  *ngFor="let item of navItems; let i = index;" style="text-align: center; text-decoration: none;"> 
+          <div *ngIf="i < navItems.length/2; "> <!--*ngIf="i < navItems.length/2; else;" -->
+            <div class="topNavLinks" >   {{item.displayName}} <p class="line"></p></div>
+          </div>
+        </a>
+
+        <a class="logo " routerLink="/home" style=" text-align: center">
+          <svg id="myLogo" viewBox="0 0 132.5 132.5">
+            
+            <g id="LFilling">
+              <path class="st0" d="M8.501,12.979l0-2.225c0-2.716,2.201-4.918,4.917-4.918h12.293c2.856,0,5.171,2.315,5.171,5.171v33.897
+                L8.501,12.979z"/>
+              <polygon class="st0" points="8.5,48.57 8.5,9.502 30.881,41.428 30.882,48.57 	"/>
+              <polygon class="st0" points="8.501,53.713 8.5,46.57 30.882,46.57 30.882,85.64 	"/>
+              <polygon class="st0" points="8.5,89.07 8.5,50.002 30.881,81.929 30.882,89.07 	"/>
+              <polygon class="st0" points="8.501,94.213 8.5,87.07 30.882,87.07 30.882,126.14 	"/>
+              <polygon class="st0" points="14.577,126 8.5,120.738 8.5,87.931 30.881,119.857 30.882,127 	"/>
+              <polygon class="st0" points="22.741,104.848 58.341,104.848 29.883,127.229 22.741,127.229 	"/>
+              <polygon class="st0" points="25.838,127.229 57.765,104.849 61.438,104.848 61.438,127.229 	"/>
+              <polygon class="st0" points="59.438,127.229 59.438,105.019 79,127.229 	"/>
+            </g>
+            <g id="NFilling">
+              <polygon class="st0" points="38.167,57.235 38.167,18.167 62.721,53.233 	"/>
+              <polygon class="st0" points="37.244,55.235 61.799,51.233 61.799,90.302 	"/>
+              <polygon class="st0" points="59.799,88.133 59.799,49.064 87.187,88.133 	"/>
+              <polygon class="st0" points="58.876,86.133 86.265,86.133 86.265,125.202 	"/>
+              <path class="st0" d="M86.907,125.562l-2.643-3.167V83.964l26.333,37.57c1.189,1.696-0.025,4.029-2.096,4.029H86.907z"/>
+              <path class="st0" d="M85.561,89.35h27.388v33.55c0,1.703-2.191,2.394-3.168,1L85.561,89.35z"/>
+              <polygon class="st0" points="90.125,91.35 90.125,52.282 112.946,86.728 112.947,91.35 	"/>
+              <polygon class="st0" points="90.126,55.856 90.125,51.233 112.947,51.233 112.947,90.302 	"/>
+              <polygon class="st0" points="90.125,53.225 90.125,14.157 112.946,48.602 112.947,53.225 	"/>
+              <path class="st0" d="M90.126,30.543l-0.001-17.905c0-3.71,3.007-6.718,6.717-6.718h9.387c3.71,0,5.717,3.007,5.717,6.717l1,52.351
+                L90.126,30.543z"/>
+            </g>
+            <path id="L" class="st1 lineDraw" d="M34.7,106.1c-2.8,0-5.1-2.3-5.1-5.1V15v-4.9c0-2.8-2.3-5.1-5.1-5.1h-9.9c-2.8,0-5.1,2.3-5.1,5.1V15v96
+              v4.9c0,5.6,4.5,10.1,10.1,10.1h4.9h10.1h41.731l-14-19.9H34.7L34.7,106.1z"/>
+            <path id="N_1_" class="st1 lineDraw" d="M39.167,47.752v8.483L84.3,120.6l0.6,0.7c2.9,3.5,7.1,5.3,11.4,5.3c0.2,0,0.4,0,0.7,0
+              c0.2,0,0.4,0,0.6,0h8.8c2.8,0,5-2.2,5-5V92.1l0,0L110.9,10c0-2.8-2.3-5-5-5h-10c-2.8,0-5,2.3-5,5l0.3,82l0,0v3.6L39.167,21.335
+              V47.752z"/>
+          </svg>
+        </a>
+
+        <a class=" mobileHide"  routerLink={{item.route}} routerLinkActive="active-link" *ngFor="let item of navItems; let i = index;">
+          <div class=" mobileHide topNavLinks" *ngIf="i >= navItems.length/2">{{item.displayName}}<p class="line"></p></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div stickyHeaderDirective style=" max-height: 100%;">
+
+    <router-outlet></router-outlet>
+
+    <!--<button (click)="myFunction('Hello')">Try it</button>-->
+
+    </div>
+
+  </div>
+</div>
+
+   <!--  <div class="all" [class.example-is-mobile]="mobileQuery.matches" *ngIf="!shouldRun">
+
+  TOP DESKTOP 
+    <mat-toolbar layout="row" class="toolbar" style="background-color: rgba(0, 0, 0, 0.5)"> 
+        <button class="mobileShow " mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>  
+        <div class="container topbar" >-->
+          
+          <!--  <a class="topNavLinks mobileHide " *ngIf="i < navItems.length/2" >   
+              {{item.displayName}}   
+            </a>
+            <h1 *ngIf="i == navItems.length/2"> Nilsson </h1>
+            <a class=" mobileHide" *ngIf="i > navItems.length/2"> 
+              {{item.displayName}} 
+            </a>-->
+          
+          <!--<a class=" mobileHide"  routerLink={{item.route}} routerLinkActive="active-link"  *ngFor="let item of navItems; let i = index;" style="text-align: center; text-decoration: none;"> 
+            <div *ngIf="i < navItems.length/2; "> *ngIf="i < navItems.length/2; else;" 
+              <div class="topNavLinks mobileHide " >   {{item.displayName}} <p class="line"></p></div>
+            </div>
+          </a>
+
+          <a class="logo" routerLink="/home" style=" text-align: center">
+            <svg id="myLogo" viewBox="0 0 132.5 132.5">
+              
+              <g id="LFilling">
+                <path class="st0" d="M8.501,12.979l0-2.225c0-2.716,2.201-4.918,4.917-4.918h12.293c2.856,0,5.171,2.315,5.171,5.171v33.897
+                  L8.501,12.979z"/>
+                <polygon class="st0" points="8.5,48.57 8.5,9.502 30.881,41.428 30.882,48.57 	"/>
+                <polygon class="st0" points="8.501,53.713 8.5,46.57 30.882,46.57 30.882,85.64 	"/>
+                <polygon class="st0" points="8.5,89.07 8.5,50.002 30.881,81.929 30.882,89.07 	"/>
+                <polygon class="st0" points="8.501,94.213 8.5,87.07 30.882,87.07 30.882,126.14 	"/>
+                <polygon class="st0" points="14.577,126 8.5,120.738 8.5,87.931 30.881,119.857 30.882,127 	"/>
+                <polygon class="st0" points="22.741,104.848 58.341,104.848 29.883,127.229 22.741,127.229 	"/>
+                <polygon class="st0" points="25.838,127.229 57.765,104.849 61.438,104.848 61.438,127.229 	"/>
+                <polygon class="st0" points="59.438,127.229 59.438,105.019 79,127.229 	"/>
+              </g>
+              <g id="NFilling">
+                <polygon class="st0" points="38.167,57.235 38.167,18.167 62.721,53.233 	"/>
+                <polygon class="st0" points="37.244,55.235 61.799,51.233 61.799,90.302 	"/>
+                <polygon class="st0" points="59.799,88.133 59.799,49.064 87.187,88.133 	"/>
+                <polygon class="st0" points="58.876,86.133 86.265,86.133 86.265,125.202 	"/>
+                <path class="st0" d="M86.907,125.562l-2.643-3.167V83.964l26.333,37.57c1.189,1.696-0.025,4.029-2.096,4.029H86.907z"/>
+                <path class="st0" d="M85.561,89.35h27.388v33.55c0,1.703-2.191,2.394-3.168,1L85.561,89.35z"/>
+                <polygon class="st0" points="90.125,91.35 90.125,52.282 112.946,86.728 112.947,91.35 	"/>
+                <polygon class="st0" points="90.126,55.856 90.125,51.233 112.947,51.233 112.947,90.302 	"/>
+                <polygon class="st0" points="90.125,53.225 90.125,14.157 112.946,48.602 112.947,53.225 	"/>
+                <path class="st0" d="M90.126,30.543l-0.001-17.905c0-3.71,3.007-6.718,6.717-6.718h9.387c3.71,0,5.717,3.007,5.717,6.717l1,52.351
+                  L90.126,30.543z"/>
+              </g>
+              <path id="L" class="st1 lineDraw" d="M34.7,106.1c-2.8,0-5.1-2.3-5.1-5.1V15v-4.9c0-2.8-2.3-5.1-5.1-5.1h-9.9c-2.8,0-5.1,2.3-5.1,5.1V15v96
+                v4.9c0,5.6,4.5,10.1,10.1,10.1h4.9h10.1h41.731l-14-19.9H34.7L34.7,106.1z"/>
+              <path id="N_1_" class="st1 lineDraw" d="M39.167,47.752v8.483L84.3,120.6l0.6,0.7c2.9,3.5,7.1,5.3,11.4,5.3c0.2,0,0.4,0,0.7,0
+                c0.2,0,0.4,0,0.6,0h8.8c2.8,0,5-2.2,5-5V92.1l0,0L110.9,10c0-2.8-2.3-5-5-5h-10c-2.8,0-5,2.3-5,5l0.3,82l0,0v3.6L39.167,21.335
+                V47.752z"/>
+            </svg>
+          </a>-->
+
+          <!--<div class="logo" style=" text-align: center">
+            <img src="../assets/img/my_logo_w.svg" height="40em" alt="LinetteNilsson">
+          </div>-->
+
+          <!--<a class=" mobileHide"  routerLink={{item.route}} routerLinkActive="active-link" *ngFor="let item of navItems; let i = index;">
+            <div class=" mobileHide topNavLinks" *ngIf="i >= navItems.length/2">{{item.displayName}}<p class="line"></p></div>
+          </a>
+        </div>
+    </mat-toolbar>-->
+
+
+

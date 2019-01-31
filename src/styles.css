@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+
+html, body {
+  height: 100%;
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+}
+
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+
+
+.content-pad {
+  
+  /*padding-left: 2em;*/
+}
+
+
+.topNavLinks:hover {
+  color: #cc7777;
+
+
+  text-decoration: underline;
+}
+
+.topNavLinks {
+  /*color: white;*/
+  text-decoration: none;
+  -webkit-transition: color 1s, font-size 1s;
+  -moz-transition: color 1s, font-size 1s;
+  -o-transition: color 0.5s, font-size 0.5s;
+  transition: color 0.5s, font-size 0.5s;
+}
