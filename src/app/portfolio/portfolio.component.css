@@ -106,13 +106,20 @@
 */
 .desc {
   position: relative;
-  margin: 1em 0 0 0;
+  margin: 2em 3em 0 3em;
   padding: 1em;
   background: rgb(254,254,254);
   -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.20);
   -moz-box-shadow: 0 0 1px rgba(0,0,0,0.20);
   box-shadow: 0 0 1px rgba(0,0,0,0.20);
   z-index: 15;
+}
+
+small {
+  color: #f0a0a0;
+}
+a {
+  color: #f0a0a0;
 }
 /*
 .direction-l .desc,
@@ -196,8 +203,9 @@
 
 
 .darker {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 25px;
 }
 
 

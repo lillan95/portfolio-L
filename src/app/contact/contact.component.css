@@ -1,0 +1,40 @@
+/*.contactForm {
+    color: black;   
+}*/
+input[type=text], textarea {
+    /*width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;*/
+    border: none;
+    border-bottom: 0.1em solid black;
+    background-color: white;
+    -webkit-appearance: none;
+    resize: vertical; 
+}
+
+input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 5px #f0a0a0;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #f0a0a0;
+}
+
+.button{
+    color: black;
+    border-color: #f0a0a0;
+    background-color: #f0a0a0;
+}
+
+#contact{
+    margin-top: 10em;
+}
+
+.contactSend{
+    text-align: center    
+}
+.darker {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2em;
+    border-radius: 25px;
+}

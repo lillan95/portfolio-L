@@ -56,6 +56,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    var rellax = new Rellax('.rellax');
+    //var rellax = new Rellax('.rellax');
   }
 }

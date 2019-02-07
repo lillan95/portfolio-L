@@ -16,17 +16,14 @@ export class PortfolioComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    var rellax = new Rellax('.rellax');
+    //var rellax = new Rellax('.rellax');
 
     function showAndHide() {
       $('.hideme').each( function(i){
-        var bottom_of_object = $(this).position().top + $(this).outerHeight();
+        var bottom_of_object = $(this).position().top; //+ $(this).outerHeight();
         var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-        //console.log("I : " ,i , " AND " ,$(window).scrollTop(), " window height ", $(window).height(), " bottom obj ", bottom_of_object)
-        //console.log(i, " bottom obj ", bottom_of_object, " Window top ",  $(window).scrollTop()+50)
         if( bottom_of_window > bottom_of_object ){
-          $(this).animate({'opacity':'1'},1500);
+          $(this).animate({'opacity':'1'},1000);
         }
         /*else if (bottom_of_object > $(window).scrollTop()+50) {
         console.log(i, " bottom obj ", bottom_of_object, " Window top ",  $(window).scrollTop()+50)
