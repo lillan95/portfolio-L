@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="header" id="myHeader" [class.example-is-mobile]="mobileQuery.matches" *ngIf="!shouldRun">
+  <div class="header" id="myHeader" [class.example-is-mobile]="mobileQuery.matches" ><!--*ngIf="!shouldRun"-->
   
     <div class="row">
       <button href="javascript:void(0)" class="mobileShow closebtn" mat-icon-button (click)="openNav()"><mat-icon>menu</mat-icon></button>  
