@@ -17,9 +17,8 @@
 
 .welcome {
   height: 25em;
-
-
 }
+
 .element{
   shape-outside: circle(30%);
   transition: shape-outside 1s;

@@ -67,7 +67,7 @@ mat-sidenav {
 .example-is-mobile .toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-  z-index: 2;
+  z-index: 50;
 }
 
 h1.example-app-name {
@@ -75,8 +75,6 @@ h1.example-app-name {
 }
 
 .sidebar {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
   flex: 1;
 
   /*background-image: url("../images/berry.png");*/
@@ -85,11 +83,7 @@ h1.example-app-name {
   background-repeat: no-repeat;
   background-size: cover;
   /*background-color: black;*/
-
-
 }
-
-
 
 .title-center { 
   flex: 1 1 auto;
@@ -127,7 +121,8 @@ a{
 }
 
 .topbar{
-  padding-top: 0.4em;
+  padding-top: 0.2em;
+  font-size: 1.5em;
 }
 .topNavLinks{
   padding-top: 0.2em;
@@ -170,7 +165,7 @@ a{
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 50;
 }
 
 .sticky + .content {

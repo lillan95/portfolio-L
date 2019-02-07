@@ -28,12 +28,12 @@ export class StickyHeaderDirective implements OnInit {
             var toShow = $event.srcElement.scrollTop-bottom_of_object+1200;
             //console.log('bottom: ', bottom_of_object, "  toShow  " , toShow, " ID ", theID, " BOTTOM ", bottom_a)
             
-            if(bottom_of_object < toShow && this === element){
+            /*if(bottom_of_object < toShow && this === element){
                 //console.log("YES")
                 $(this).animate({'opacity':'1'},1500);
                 
 //                $("#"+theID ).animate({'opacity':'1'},1500);
-            }
+            }*/
             /*var bottom_of_window = $(window).scrollTop() + $(window).height();
             
             if( bottom_of_window > bottom_of_object ){
